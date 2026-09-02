@@ -1,0 +1,74 @@
+{
+  "name": "electron-viasocks",
+  "version": "2.0.0",
+  "description": "Bridge a SOCKS4/5 proxy with username/password authentication into a local HTTP proxy that Electron's session.setProxy() can consume.",
+  "keywords": [
+    "electron",
+    "electron-session",
+    "socks",
+    "socks5",
+    "proxy",
+    "proxy-auth",
+    "bridge"
+  ],
+  "author": "MissGwen <missgwen0211@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissGwen/electron-viasocks.git"
+  },
+  "homepage": "https://github.com/MissGwen/electron-viasocks",
+  "bugs": {
+    "url": "https://github.com/MissGwen/electron-viasocks/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "private": false,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "rslib build",
+    "dev": "rslib build --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check",
+    "format": "biome format --write",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "socks": "*",
+    "socks-proxy-agent": "*"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "*",
+    "@microsoft/api-extractor": "^7.59.0",
+    "@rslib/core": "^0.23.2",
+    "@types/node": "*",
+    "@vitest/coverage-v8": "*",
+    "selfsigned": "^5.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "*"
+  }
+}
